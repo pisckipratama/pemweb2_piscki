@@ -1,5 +1,7 @@
 <?php
 
+require_once 'libfungsi.php';
+
 $proses = $_POST['proses'];
 $nama_siswa = $_POST['nama'];
 $mata_kuliah = $_POST['matkul'];
@@ -23,31 +25,18 @@ if (!empty($proses)) {
   echo '<br/>Presentasi Total Nilai : ' . $total_nilai_presentase;
 }
 
-switch ($total_nilai_presentase) {
-  case $total_nilai_presentase >= 80 && $total_nilai_presentase <= 100:
-    echo "<br><br>Grade : <b>A</b> (Sangat Memuaskan)";
-    break;
-  case $total_nilai_presentase >= 70 && $total_nilai_presentase <= 84:
-    echo "<br><br>Grade : <b>B</b> (Memuaskan)";
-    break;
-  case $total_nilai_presentase >= 56 && $total_nilai_presentase <= 69:
-    echo "<br><br>Grade : <b>C</b> (Cukup)";
-    break;
-  case $total_nilai_presentase >= 36 && $total_nilai_presentase <= 55:
-    echo "<br><br>Grade : <b>D</b> (Kurang)";
-    break;
-  case $total_nilai_presentase >= 0 && $total_nilai_presentase <= 35:
-    echo "<br><br>Grade : <b>E</b> (Sangat Kurang)";
-    break;
-  default:
-    echo "<br><br>Grade : <b>I</b> (Tidak ada)";
-    break;
-}
+$grade_nilai = grade($total_nilai_presentase);
+echo "<br/><br/>Grade : " . $grade_nilai;
 
-if ($total_nilai_presentase > 55 && $total_nilai_presentase < 100) {
-  echo "<br/><br/>Selamat anda dinyatakan <b>LULUS</b> untuk mata kuliah " . $mata_kuliah;
-} elseif ($total_nilai_presentase <= 55 && $total_nilai_presentase > 0) {
-  echo "<br/><br/>Mohon maaf anda dinyatakan <b>BELUM LULUS</b> untuk mata kuliah " . $mata_kuliah;
+$predikat_nilai = predikat($grade_nilai);
+echo "<br/>Predikat : " . $predikat_nilai;
+
+$hasil_ujian = kelulusan($total_nilai_presentase);
+
+if ($hasil_ujian) {
+  echo "<br/><br/>Anda dinyatakan <b>$hasil_ujian</b> untuk kode mata kuliah " . $mata_kuliah . '.';
 } else {
   echo "<br/><br/>Mohon Maaf sepertinya anda salah menginput nilai, silahkan coba input nilai kembali.";
 }
+
+echo '<p>kembali ke <a href="form_nilai.php">form siswa</a></p>';
