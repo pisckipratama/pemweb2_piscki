@@ -9,7 +9,7 @@
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-  <title>Hello, world!</title>
+  <title>Daftar Mahasiswa</title>
 </head>
 
 <body>
@@ -19,8 +19,10 @@
   $ns2 = ['id' => 2, 'nama' => 'Alissa Khairunnisa', 'nim' => '02012', 'prodi' => "TI", 'angkatan' => '2012', 'ipk' => 3.9];
   $ns3 = ['id' => 3, 'nama' => 'Rosalie Naurah', 'nim' => '01011', 'prodi' => "SI", 'angkatan' => '2010', 'ipk' => 3.46];
   $ns4 = ['id' => 4, 'nama' => 'Defghi Muhammad', 'nim' => '01012', 'prodi' => "SI", 'angkatan' => '2010', 'ipk' => 3.2];
+  $ns5 = ['id' => 5, 'nama' => 'Hamish Dean', 'nim' => '02013', 'prodi' => "TI", 'angkatan' => '2011', 'ipk' => 2.2];
+  $ns6 = ['id' => 6, 'nama' => 'Shafira Aurella', 'nim' => '01013', 'prodi' => "SI", 'angkatan' => '2011', 'ipk' => 2.8];
 
-  $ar_nilai = [$ns1, $ns2, $ns3, $ns4]
+  $ar_nilai = [$ns1, $ns2, $ns3, $ns4, $ns5, $ns6]
   ?>
 
   <div class="container">
