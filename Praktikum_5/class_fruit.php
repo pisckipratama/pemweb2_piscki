@@ -24,9 +24,11 @@ class Fruit
 
 $mango = new Fruit();
 $mango->name = 'Mango'; // OK
-$mango->color = 'Yellow'; // ERROR
-$mango->weight = 300; // Error
+echo $mango->name . '<br/>';
+// $mango->color = 'Yellow'; // ERROR
+// $mango->weight = 300; // Error
 
 $mango->set_name('Mangga'); // OK
-$mango->set_color('Green'); // ERROR
-$mango->set_weight('200'); // ERROR
+// $mango->set_color('Green'); // ERROR
+// $mango->set_weight('200'); // ERROR
+echo $mango->name;
