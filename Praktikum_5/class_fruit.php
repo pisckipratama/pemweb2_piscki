@@ -29,7 +29,7 @@ class Fruit
 
   public function intro()
   {
-    echo "Nama buah ini adalah {$this->name} dan warnanya {$this->color}";
+    echo "Nama buah ini adalah {$this->name} dan warnanya {$this->color} <br/>";
   }
 }
 
@@ -48,7 +48,7 @@ class Strawberry extends Fruit
 {
   public function message()
   {
-    echo "apakah saya adalah buah atau berry?";
+    echo "apakah saya adalah buah atau berry? <br/>";
   }
 }
 
