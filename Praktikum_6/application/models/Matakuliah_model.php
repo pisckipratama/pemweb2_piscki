@@ -2,5 +2,8 @@
 
 class Matakuliah_model extends CI_Model
 {
-	// lengkapi
+	public $id;
+	public $nama;
+	public $sks;
+	public $kode;
 }
