@@ -8,7 +8,10 @@ class Prodi_model extends CI_Model
 	{
 		$query = $this->db->get($this->table);
 
-		return $query->result();
+		return array(
+			'records' => $query->result(),
+			'count' => count($query->result()),
+		);
 	}
 
 	public function findById($id)
