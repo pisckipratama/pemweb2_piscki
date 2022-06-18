@@ -5,12 +5,12 @@
 		<div class="container-fluid">
 			<div class="row mb-2">
 				<div class="col-sm-6">
-					<h1>Blank Page</h1>
+					<h1>Praktikum 7</h1>
 				</div>
 				<div class="col-sm-6">
 					<ol class="breadcrumb float-sm-right">
 						<li class="breadcrumb-item"><a href="#">Home</a></li>
-						<li class="breadcrumb-item active">Blank Page</li>
+						<li class="breadcrumb-item active"><?= $judul ?></li>
 					</ol>
 				</div>
 			</div>
@@ -23,7 +23,7 @@
 		<!-- Default box -->
 		<div class="card">
 			<div class="card-header">
-				<h3 class="card-title">Title</h3>
+				<h3 class="card-title"><?= $judul ?></h3>
 
 				<div class="card-tools">
 					<button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -37,41 +37,48 @@
 			<div class="card-body">
 				<!-- mulai nampilin data dari database -->
 				<div class="col-md-12">
-					<h3>Daftar Prodi di STT Nurul Fikri</h3>
-					<table class="table">
-						<thead>
-							<tr>
-								<th>#</th>
-								<th>KODE</th>
-								<th>Nama Prodi</th>
-								<th>Ketua Prodi</th>
-							</tr>
-						</thead>
-						<tbody>
-							<?php
-							$nomor = 1;
-							foreach ($list_prodi as $row) {
-							?>
+					<div class="table-responsive">
+						<table class="table table-striped table-bordered ">
+
+							<tbody>
 								<tr>
-									<td><?= $nomor ?></td>
-									<td><?= $row->kode ?></td>
-									<td><?= $row->nama ?></td>
-									<td><?= $row->kaprodi ?></td>
+									<th scope="row">NIM</th>
+									<td><?= $mhs1->nim ?></td>
 								</tr>
-							<?php
-								$nomor++;
-							}
-							?>
-						</tbody>
-					</table>
+								<tr>
+									<th scope="row">Nama</th>
+									<td><?= $mhs1->nama ?></td>
+								</tr>
+								<tr>
+									<th scope="row">Gender</th>
+									<td><?= $mhs1->gender == 'L' ? 'Laki-laki' : 'Perempuan' ?></td>
+								</tr>
+								<tr>
+									<th scope="row">TTL</th>
+									<td><?= $mhs1->tmp_lahir . ', ' . $mhs1->tgl_lahir ?></td>
+								</tr>
+								<tr>
+									<th scope="row">Prodi</th>
+									<td><?= $mhs1->prodi ?></td>
+								</tr>
+								<tr>
+									<th scope="row">IPK</th>
+									<td><?= $mhs1->ipk ?></td>
+								</tr>
+								<tr>
+									<th scope="row">Predikat</th>
+									<td><?= $mhs1->predikat() ?></td>
+								</tr>
+							</tbody>
+
+						</table>
+					</div>
 				</div>
 
 			</div>
 			<!-- /.card-body -->
 			<div class="card-footer">
-				<?php
-				echo "<p> Total data/row : <b>" . $count . "</b></p>";
-				?>
+				<p>By Piscki F. Pratama - 0110221001</p>
 			</div>
 			<!-- /.card-footer-->
 		</div>

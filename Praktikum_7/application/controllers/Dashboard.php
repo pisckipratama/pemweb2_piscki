@@ -23,7 +23,7 @@ class Dashboard extends CI_Controller
 	{
 		$this->load->view('layout/header');
 		$this->load->view('layout/sidebar');
-		$this->load->view('prodi/index');
+		$this->load->view('welcome_message');
 		$this->load->view('layout/footer');
 	}
 }
