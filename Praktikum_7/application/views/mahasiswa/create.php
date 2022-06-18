@@ -37,6 +37,7 @@
 			<div class="card-body">
 				<!-- mulai nampilin data dari database -->
 				<div class="col-md-12">
+					<a href="<?php echo site_url('mahasiswa') ?>" class="btn btn-danger mb-3" rel="noopener noreferrer">Back to Home</a>
 					<?php echo form_open('mahasiswa/save') ?>
 					<div class="form-group row">
 						<label for="nim" class="col-2 col-form-label">NIM</label>

@@ -30,6 +30,7 @@ class Mahasiswa extends CI_Controller
 
 		$list_mhs = [$this->mhs1, $this->mhs2, $this->mhs3];
 		$data['list_mhs'] = $list_mhs;
+		$data['judul'] = 'Data Mahasiswa';
 
 		$this->load->view('layout/header');
 		$this->load->view('layout/sidebar');

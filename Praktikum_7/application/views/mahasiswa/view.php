@@ -37,9 +37,10 @@
 			<div class="card-body">
 				<!-- mulai nampilin data dari database -->
 				<div class="col-md-12">
+					<a href="<?php echo site_url('mahasiswa/create') ?>" class="btn btn-warning mb-3" rel="noopener noreferrer">Create Again</a>
+					<a href="<?php echo site_url('mahasiswa') ?>" class="btn btn-danger mb-3" rel="noopener noreferrer">Back to Home</a>
 					<div class="table-responsive">
 						<table class="table table-striped table-bordered ">
-
 							<tbody>
 								<tr>
 									<th scope="row">NIM</th>
