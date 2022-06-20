@@ -37,38 +37,38 @@
 			<div class="card-body">
 				<!-- mulai nampilin data dari database -->
 				<div class="col-md-12">
-					<a href="<?php echo site_url('mahasiswa/create') ?>" class="btn btn-warning mb-3" rel="noopener noreferrer">Create Again</a>
-					<a href="<?php echo site_url('mahasiswa') ?>" class="btn btn-danger mb-3" rel="noopener noreferrer">Back to Home</a>
+					<a href="<?php echo site_url('mahasiswa/create') ?>" class="btn btn-success mb-3" rel="noopener noreferrer">Create Again</a>
+					<a href="<?php echo site_url('mahasiswa') ?>" class="btn btn-secondary mb-3" rel="noopener noreferrer">Back to Home</a>
 					<div class="table-responsive">
-						<table class="table table-striped table-bordered ">
+						<table class="table table-striped ">
 							<tbody>
 								<tr>
 									<th scope="row">NIM</th>
-									<td><?= $mhs1->nim ?></td>
+									<td><?= $mhs->nim ?></td>
 								</tr>
 								<tr>
 									<th scope="row">Nama</th>
-									<td><?= $mhs1->nama ?></td>
+									<td><?= $mhs->nama ?></td>
 								</tr>
 								<tr>
 									<th scope="row">Gender</th>
-									<td><?= $mhs1->gender == 'L' ? 'Laki-laki' : 'Perempuan' ?></td>
+									<td><?= $mhs->gender == 'L' ? 'Laki-laki' : 'Perempuan' ?></td>
 								</tr>
 								<tr>
 									<th scope="row">TTL</th>
-									<td><?= $mhs1->tmp_lahir . ', ' . $mhs1->tgl_lahir ?></td>
+									<td><?= $mhs->tmp_lahir . ', ' . $mhs->tgl_lahir ?></td>
 								</tr>
 								<tr>
 									<th scope="row">Prodi</th>
-									<td><?= $mhs1->prodi ?></td>
+									<td><?= $mhs->prodi_kode ?></td>
 								</tr>
 								<tr>
 									<th scope="row">IPK</th>
-									<td><?= $mhs1->ipk ?></td>
+									<td><?= $mhs->ipk ?></td>
 								</tr>
 								<tr>
 									<th scope="row">Predikat</th>
-									<td><?= $mhs1->predikat() ?></td>
+									<td><?= $mhs->ipk >= 3.75 ? 'Cumlaude' : 'Baik' ?></td>
 								</tr>
 							</tbody>
 

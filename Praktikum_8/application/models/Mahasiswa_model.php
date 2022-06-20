@@ -16,7 +16,7 @@ class Mahasiswa_model extends CI_Model
 
 	public function findById($id)
 	{
-		$this->db->where("kode", $id);
+		$this->db->where("nim", $id);
 		$query = $this->db->get($this->table);
 
 		return $query->row();

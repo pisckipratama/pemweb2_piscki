@@ -18,6 +18,19 @@ class Mahasiswa extends CI_Controller
 		$this->load->view('layout/footer');
 	}
 
+	public function view()
+	{
+		$nim = $this->input->get('id');
+		$this->load->model('mahasiswa_model', 'mhs');
+		$data['mhs'] = $this->mhs->findById($nim);
+		$data['judul'] = 'View Mahasiswa';
+
+		$this->load->view('layout/header');
+		$this->load->view('layout/sidebar');
+		$this->load->view('mahasiswa/view', $data);
+		$this->load->view('layout/footer');
+	}
+
 	public function create()
 	{
 		$data['judul'] = 'Form Kelola Mahasiswa';

@@ -44,6 +44,7 @@
 								<th>Gender</th>
 								<th>IPK</th>
 								<th>Predikat</th>
+								<th>Action</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -58,6 +59,11 @@
 									<td><?= $mhs->gender == 'L' ? 'Laki-Laki' : 'Perempuan' ?></td>
 									<td><?= $mhs->ipk ?></td>
 									<td><?= $mhs->ipk >= 3.75 ? 'Cumlaude' : 'Baik' ?></td>
+									<td>
+										<a href="<?php echo site_url('mahasiswa/view?id=') . $mhs->nim ?>" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">View</a>
+										<!-- <a href="#" class="btn btn-secondary btn-sm active" role="button" aria-pressed="true">Link</a> -->
+
+									</td>
 								</tr>
 							<?php
 								$nomor++;
