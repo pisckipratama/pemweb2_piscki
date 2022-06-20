@@ -16,7 +16,7 @@ class Dosen_model extends CI_Model
 
 	public function findById($id)
 	{
-		$this->db->where("kode", $id);
+		$this->db->where("nidn", $id);
 		$query = $this->db->get($this->table);
 
 		return $query->row();

@@ -44,6 +44,7 @@
 								<th>Gender</th>
 								<th>TTL</th>
 								<th>Pendidikan</th>
+								<th>Action</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -58,6 +59,10 @@
 									<td><?= $dsn->gender == 'L' ? 'Laki-Laki' : 'Perempuan' ?></td>
 									<td><?= $dsn->tmp_lahir . ', ' . $dsn->tgl_lahir ?></td>
 									<td><?= $dsn->pendidikan_akhir ?></td>
+									<td>
+										<a href="<?php echo site_url('dosen/view?id=') . $dsn->nidn ?>" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">View</a>
+										<!-- <a href="#" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Link</a> -->
+									</td>
 								</tr>
 							<?php
 								$nomor++;

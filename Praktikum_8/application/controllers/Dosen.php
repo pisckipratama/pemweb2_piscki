@@ -18,6 +18,20 @@ class Dosen extends CI_Controller
 		$this->load->view('layout/footer');
 	}
 
+	public function view()
+	{
+		$this->load->model('dosen_model', 'dosen');
+
+		$nidn = $this->input->get('id');
+		$data['dsn'] = $this->dosen->findById($nidn);
+		$data['judul'] = 'View Dosen';
+
+		$this->load->view('layout/header');
+		$this->load->view('layout/sidebar');
+		$this->load->view('dosen/view', $data);
+		$this->load->view('layout/footer');
+	}
+
 	public function create()
 	{
 		$data['judul'] = 'Add Dosen';
