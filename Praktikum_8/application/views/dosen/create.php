@@ -72,6 +72,16 @@
 						</div>
 					</div>
 					<div class="form-group row">
+						<label for="prodi" class="col-3 col-form-label">Program Studi</label>
+						<div class="col-9">
+							<select id="prodi" name="prodi" class="custom-select">
+								<option value="BD">Bisnis Digital</option>
+								<option value="SI">Sistem Informasi</option>
+								<option value="TI">Teknik Informatika</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group row">
 						<label for="pendidikan" class="col-3 col-form-label">Pendidikan</label>
 						<div class="col-9">
 							<select id="pendidikan" name="pendidikan" class="custom-select">

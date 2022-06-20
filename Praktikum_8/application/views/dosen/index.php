@@ -41,6 +41,7 @@
 								<th>#</th>
 								<th>NIDN</th>
 								<th>Nama</th>
+								<th>Program Studi</th>
 								<th>Gender</th>
 								<th>TTL</th>
 								<th>Pendidikan</th>
@@ -56,12 +57,28 @@
 									<td><?= $nomor ?></td>
 									<td><?= $dsn->nidn ?></td>
 									<td><?= $dsn->nama ?></td>
+									<td>
+										<?php
+										switch ($dsn->prodi_kode) {
+											case 'BD':
+												echo 'Bisnis Digital';
+												break;
+											case 'TI':
+												echo 'Teknik Informatika';
+												break;
+											case 'SI':
+												echo 'Sistem Informasi';
+												break;
+										}
+										?>
+									</td>
 									<td><?= $dsn->gender == 'L' ? 'Laki-Laki' : 'Perempuan' ?></td>
 									<td><?= $dsn->tmp_lahir . ', ' . $dsn->tgl_lahir ?></td>
 									<td><?= $dsn->pendidikan_akhir ?></td>
 									<td>
-										<a href="<?php echo site_url('dosen/view?id=') . $dsn->nidn ?>" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">View</a>
-										<!-- <a href="#" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Link</a> -->
+										<a href="dosen/view?id=<?= $dsn->nidn ?>" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">View</a>
+										<a href="dosen/edit?id=<?= $dsn->nidn ?>" class="btn btn-secondary btn-sm active" role="button" aria-pressed="true">Edit</a>
+										<a href="dosen/delete?id=<?= $dsn->nidn ?>" class="btn btn-danger btn-sm active" onclick="if(!confirm('Anda yakin menghapus dosen dengan NIDN <?= $dsn->nidn ?> ?')) {return false}" role="button" aria-pressed="true">Delete</a>
 									</td>
 								</tr>
 							<?php

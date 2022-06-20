@@ -43,20 +43,56 @@ class Dosen extends CI_Controller
 
 	public function save()
 	{
-		$this->load->model('dosen_model', 'dsn1');
+		$this->load->model('dosen_model', 'dsn');
 
-		$this->dsn1->nidn = $this->input->post('nidn');
-		$this->dsn1->nama = $this->input->post('nama');
-		$this->dsn1->gender = $this->input->post('jk');
-		$this->dsn1->tmp_lahir = $this->input->post('tmp_lahir');
-		$this->dsn1->tgl_lahir = $this->input->post('tgl_lahir');
-		$this->dsn1->pendidikan = $this->input->post('pendidikan');
+		$nidn = $this->input->post('nidn');
+		$nama = $this->input->post('nama');
+		$gender = $this->input->post('jk');
+		$tmp_lahir = $this->input->post('tmp_lahir');
+		$tgl_lahir = $this->input->post('tgl_lahir');
+		$pendidikan = $this->input->post('pendidikan');
+		$prodi = $this->input->post('prodi');
+		$nidnedit = $this->input->post('nidnedit');
 
-		$data['dsn1'] = $this->dsn1;
-		$data['judul'] = 'View Dosen';
+		$data_dsn[] = $nidn;
+		$data_dsn[] = $nama;
+		$data_dsn[] = $gender;
+		$data_dsn[] = $tmp_lahir;
+		$data_dsn[] = $tgl_lahir;
+		$data_dsn[] = $pendidikan;
+		$data_dsn[] = $prodi;
+
+		if (isset($nidnedit)) {
+			$data_dsn[] = $nidnedit;
+			$this->dsn->update($data_dsn);
+		} else {
+			$this->dsn->save($data_dsn);
+		}
+
+		redirect(base_url() . 'index.php/dosen/view?id=' . $nidn, 'refresh');
+	}
+
+	public function edit()
+	{
+		$id = $this->input->get('id');
+		$this->load->model('dosen_model', 'dsn');
+
+		$dsn_edit = $this->dsn->findById($id);
+
+		$data['dsnedit'] = $dsn_edit;
+		$data['judul'] = 'Update Dosen';
 		$this->load->view('layout/header');
 		$this->load->view('layout/sidebar');
-		$this->load->view('dosen/view', $data);
+		$this->load->view('dosen/update', $data);
 		$this->load->view('layout/footer');
+	}
+
+	public function delete()
+	{
+		$id = $this->input->get('id');
+		$this->load->model('dosen_model', 'dsn');
+		$this->dsn->delete($id);
+
+		redirect(base_url() . 'index.php/dosen', 'refresh');
 	}
 }
