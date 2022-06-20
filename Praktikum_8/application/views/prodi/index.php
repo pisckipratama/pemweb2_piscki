@@ -42,6 +42,7 @@
 								<th>Nama Prodi</th>
 								<th>Kode Prodi</th>
 								<th>Ketua Prodi</th>
+								<th>Action</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -54,6 +55,13 @@
 									<td><?= $prodi->nama ?></td>
 									<td><?= $prodi->kode ?></td>
 									<td><?= $prodi->kaprodi ?></td>
+									<td>
+										<a href="<?php echo site_url('prodi/view?id=') . $prodi->kode ?>" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">View</a>
+										<a href="<?php echo site_url('prodi/edit?id=') . $prodi->kode ?>" class="btn btn-secondary btn-sm active" role="button" aria-pressed="true">Edit</a>
+										<a href="<?php echo site_url('prodi/delete?id=') . $prodi->kode ?>" onclick="if(!confirm('Anda yakin menghapus mahasiswa dengan prodi <?= $prodi->nama ?> ?')) {return false}" class="btn btn-danger btn-sm active" role="button" aria-pressed="true">
+											Delete
+										</a>
+									</td>
 								</tr>
 							<?php
 								$nomor++;

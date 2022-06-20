@@ -35,28 +35,29 @@
 				</div>
 			</div>
 			<div class="card-body">
+				<?php $hidden = ['kodeedit' => $prodiedit->kode] ?>
 				<!-- mulai nampilin data dari database -->
 				<div class="col-md-12">
 					<a href="<?php echo site_url('prodi') ?>" class="btn btn-secondary mb-3" rel="noopener noreferrer">Back to Home</a>
-					<?php echo form_open('prodi/save') ?>
+					<?php echo form_open('prodi/save', '', $hidden) ?>
 					<div class="form-group row">
 						<label for="kode" class="col-3 col-form-label">Kode Program</label>
 						<div class="col-9">
-							<input id="kode" name="kode" placeholder="Kode" type="text" class="form-control">
+							<input id="kode" name="kode" placeholder="Kode" type="text" class="form-control" value="<?= $prodiedit->kode ?>">
 						</div>
 					</div>
 
 					<div class="form-group row">
 						<label for="prodi" class="col-3 col-form-label">Nama Program Studi</label>
 						<div class="col-9">
-							<input id="prodi" name="prodi" placeholder="Program Studi" type="text" class="form-control">
+							<input id="prodi" name="prodi" placeholder="Program Studi" type="text" class="form-control" value="<?= $prodiedit->nama ?>">
 						</div>
 					</div>
 
 					<div class="form-group row">
 						<label for="kaprodi" class="col-3 col-form-label">Ketua Program Studi</label>
 						<div class="col-9">
-							<input id="kaprodi" name="kaprodi" placeholder="Kaprodi" type="text" class="form-control">
+							<input id="kaprodi" name="kaprodi" placeholder="Kaprodi" type="text" class="form-control" value="<?= $prodiedit->kaprodi ?>">
 						</div>
 					</div>
 

@@ -37,30 +37,22 @@
 			<div class="card-body">
 				<!-- mulai nampilin data dari database -->
 				<div class="col-md-12">
-					<a href="<?php echo site_url('dosen/create') ?>" class="btn btn-warning mb-3" rel="noopener noreferrer">Create Again</a>
-					<a href="<?php echo site_url('dosen') ?>" class="btn btn-danger mb-3" rel="noopener noreferrer">Back to Home</a>
+					<a href="<?php echo site_url('prodi/create') ?>" class="btn btn-success mb-3" rel="noopener noreferrer">Create Again</a>
+					<a href="<?php echo site_url('prodi') ?>" class="btn btn-secondary mb-3" rel="noopener noreferrer">Back to Home</a>
 					<div class="table-responsive">
-						<table class="table table-striped table-bordered ">
+						<table class="table table-striped table ">
 							<tbody>
 								<tr>
-									<th scope="row">NIDN</th>
-									<td><?= $dsn1->nidn ?></td>
+									<th scope="row">Kode Prodi</th>
+									<td><?= $prodi->kode ?></td>
 								</tr>
 								<tr>
-									<th scope="row">Nama</th>
-									<td><?= $dsn1->nama ?></td>
+									<th scope="row">Nama Prodi</th>
+									<td><?= $prodi->nama ?></td>
 								</tr>
 								<tr>
-									<th scope="row">Gender</th>
-									<td><?= $dsn1->gender == 'L' ? 'Laki-laki' : 'Perempuan' ?></td>
-								</tr>
-								<tr>
-									<th scope="row">TTL</th>
-									<td><?= $dsn1->tmp_lahir . ', ' . $dsn1->tgl_lahir ?></td>
-								</tr>
-								<tr>
-									<th scope="row">Pendidikan</th>
-									<td><?= $dsn1->pendidikan ?></td>
+									<th scope="row">Ketua Prodi</th>
+									<td><?= $prodi->kaprodi ?></td>
 								</tr>
 							</tbody>
 
