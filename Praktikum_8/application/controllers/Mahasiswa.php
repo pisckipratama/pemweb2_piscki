@@ -86,4 +86,13 @@ class Mahasiswa extends CI_Controller
 		$this->load->view('mahasiswa/update', $data);
 		$this->load->view('layout/footer');
 	}
+
+	public function delete()
+	{
+		$id = $this->input->get('id');
+		$this->load->model('mahasiswa_model', 'mhs');
+		$this->mhs->delete($id);
+
+		redirect(base_url() . 'index.php/mahasiswa', 'refresh');
+	}
 }

@@ -34,4 +34,10 @@ class Mahasiswa_model extends CI_Model
 		$sql = "UPDATE " . $this->table . " SET nim=?, nama=?, gender=?, tmp_lahir=?, tgl_lahir=?, ipk=?, prodi_kode=? WHERE nim=?";
 		$this->db->query($sql, $data);
 	}
+
+	public function delete($id)
+	{
+		$sql = "DELETE FROM " . $this->table . " WHERE nim = ?";
+		$this->db->query($sql, array($id));
+	}
 }

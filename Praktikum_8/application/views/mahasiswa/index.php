@@ -64,7 +64,9 @@
 									<td>
 										<a href="<?php echo site_url('mahasiswa/view?id=') . $mhs->nim ?>" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">View</a>
 										<a href="<?php echo site_url('mahasiswa/edit?id=') . $mhs->nim ?>" class="btn btn-secondary btn-sm active" role="button" aria-pressed="true">Edit</a>
-										<a href="<?php echo site_url('mahasiswa/delete?id=') . $mhs->nim ?>" class="btn btn-danger btn-sm active" role="button" aria-pressed="true">Delete</a>
+										<a href="<?php echo site_url('mahasiswa/delete?id=') . $mhs->nim ?>" onclick="if(!confirm('Anda yakin menghapus mahasiswa dengan NIM <?= $mhs->nim ?> ?')) {return false}" class="btn btn-danger btn-sm active" role="button" aria-pressed="true">
+											Delete
+										</a>
 									</td>
 								</tr>
 							<?php
