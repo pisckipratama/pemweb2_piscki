@@ -28,4 +28,10 @@ class Mahasiswa_model extends CI_Model
 
 		$this->db->query($sql, $data);
 	}
+
+	public function update($data)
+	{
+		$sql = "UPDATE " . $this->table . " SET nim=?, nama=?, gender=?, tmp_lahir=?, tgl_lahir=?, ipk=?, prodi_kode=? WHERE nim=?";
+		$this->db->query($sql, $data);
+	}
 }

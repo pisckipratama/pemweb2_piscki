@@ -63,8 +63,8 @@
 									<td><?= $mhs->ipk >= 3.75 ? 'Cumlaude' : 'Baik' ?></td>
 									<td>
 										<a href="<?php echo site_url('mahasiswa/view?id=') . $mhs->nim ?>" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">View</a>
-										<!-- <a href="#" class="btn btn-secondary btn-sm active" role="button" aria-pressed="true">Link</a> -->
-
+										<a href="<?php echo site_url('mahasiswa/edit?id=') . $mhs->nim ?>" class="btn btn-secondary btn-sm active" role="button" aria-pressed="true">Edit</a>
+										<a href="<?php echo site_url('mahasiswa/delete?id=') . $mhs->nim ?>" class="btn btn-danger btn-sm active" role="button" aria-pressed="true">Delete</a>
 									</td>
 								</tr>
 							<?php
