@@ -57,10 +57,36 @@
 									<td><?= $nomor ?></td>
 									<td><?= $mhs->nim ?></td>
 									<td><?= $mhs->nama ?></td>
-									<td><?= $mhs->prodi_kode ?></td>
+									<td>
+										<?php
+										switch ($mhs->prodi_kode) {
+											case 'BD':
+												echo 'Bisnis Digital';
+												break;
+											case 'TI':
+												echo 'Teknik Informatika';
+												break;
+											case 'SI':
+												echo 'Sistem Informasi';
+												break;
+										}
+										?>
+									</td>
 									<td><?= $mhs->gender == 'L' ? 'Laki-Laki' : 'Perempuan' ?></td>
 									<td><?= $mhs->ipk ?></td>
-									<td><?= $mhs->ipk >= 3.75 ? 'Cumlaude' : 'Baik' ?></td>
+									<td>
+										<?php
+
+										if ($mhs->ipk >= 2.00 && $mhs->ipk <= 2.75) {
+											echo 'Memuaskan';
+										} else if ($mhs->ipk >= 2.76 && $mhs->ipk <= 3.5) {
+											echo 'Sangat Memuaskan';
+										} else {
+											echo 'Cumlaude';
+										}
+										// $mhs->ipk >= 3.75 ? 'Cumlaude' : 'Baik'
+										?>
+									</td>
 									<td>
 										<a href="<?php echo site_url('mahasiswa/view?id=') . $mhs->nim ?>" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">View</a>
 										<a href="<?php echo site_url('mahasiswa/edit?id=') . $mhs->nim ?>" class="btn btn-secondary btn-sm active" role="button" aria-pressed="true">Edit</a>
