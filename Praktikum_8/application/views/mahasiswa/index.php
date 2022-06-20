@@ -41,6 +41,7 @@
 								<th>#</th>
 								<th>NIM</th>
 								<th>Nama</th>
+								<th>Prodi</th>
 								<th>Gender</th>
 								<th>IPK</th>
 								<th>Predikat</th>
@@ -56,6 +57,7 @@
 									<td><?= $nomor ?></td>
 									<td><?= $mhs->nim ?></td>
 									<td><?= $mhs->nama ?></td>
+									<td><?= $mhs->prodi_kode ?></td>
 									<td><?= $mhs->gender == 'L' ? 'Laki-Laki' : 'Perempuan' ?></td>
 									<td><?= $mhs->ipk ?></td>
 									<td><?= $mhs->ipk >= 3.75 ? 'Cumlaude' : 'Baik' ?></td>

@@ -42,22 +42,26 @@ class Mahasiswa extends CI_Controller
 
 	public function save()
 	{
-		$this->load->model('mahasiswa_model', 'mhs1');
+		$this->load->model('mahasiswa_model', 'mhs');
 
-		$this->mhs1->nim = $this->input->post('nim');
-		$this->mhs1->nama = $this->input->post('nama');
-		$this->mhs1->gender = $this->input->post('jk');
-		$this->mhs1->tmp_lahir = $this->input->post('tmp_lahir');
-		$this->mhs1->tgl_lahir = $this->input->post('tgl_lahir');
-		$this->mhs1->prodi = $this->input->post('prodi');
-		$this->mhs1->ipk = $this->input->post('ipk');
+		$nim = $this->input->post('nim');
+		$nama = $this->input->post('nama');
+		$gender = $this->input->post('jk');
+		$tmp_lahir = $this->input->post('tmp_lahir');
+		$tgl_lahir = $this->input->post('tgl_lahir');
+		$prodi = $this->input->post('prodi');
+		$ipk = $this->input->post('ipk');
 
-		// die(print_r($this->mhs1));
-		$data['mhs1'] = $this->mhs1;
-		$data['judul'] = 'View Mahasiswa';
-		$this->load->view('layout/header');
-		$this->load->view('layout/sidebar');
-		$this->load->view('mahasiswa/view', $data);
-		$this->load->view('layout/footer');
+		$data_mhs[] = $nim;
+		$data_mhs[] = $nama;
+		$data_mhs[] = $gender;
+		$data_mhs[] = $tmp_lahir;
+		$data_mhs[] = $tgl_lahir;
+		$data_mhs[] = $ipk;
+		$data_mhs[] = $prodi;
+
+		$this->mhs->save($data_mhs);
+
+		redirect(base_url() . 'index.php/mahasiswa/view?id=' . $nim, 'refresh');
 	}
 }

@@ -21,4 +21,11 @@ class Mahasiswa_model extends CI_Model
 
 		return $query->row();
 	}
+
+	public function save($data)
+	{
+		$sql = "INSERT INTO " . $this->table . " (nim, nama, gender, tmp_lahir, tgl_lahir, ipk, prodi_kode) VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+		$this->db->query($sql, $data);
+	}
 }

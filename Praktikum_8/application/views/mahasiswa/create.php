@@ -108,7 +108,7 @@
 						<label for="prodi" class="col-2 col-form-label">Program Studi</label>
 						<div class="col-8">
 							<select id="prodi" name="prodi" class="custom-select">
-								<option value="DB">Bisnis Digital</option>
+								<option value="BD">Bisnis Digital</option>
 								<option value="SI">Sistem Informasi</option>
 								<option value="TI">Teknik Informatika</option>
 							</select>
