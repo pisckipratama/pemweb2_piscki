@@ -21,4 +21,19 @@ class Prodi_model extends CI_Model
 
 		return $query->row();
 	}
+
+	public function save($data)
+	{
+		// code here
+	}
+
+	public function update($data)
+	{
+		// code here
+	}
+
+	public function delete($id)
+	{
+		// code here
+	}
 }

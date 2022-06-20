@@ -5,12 +5,12 @@
 		<div class="container-fluid">
 			<div class="row mb-2">
 				<div class="col-sm-6">
-					<h1>Welcome to Praktikum 8!</h1>
+					<h1>Praktikum 7</h1>
 				</div>
 				<div class="col-sm-6">
 					<ol class="breadcrumb float-sm-right">
 						<li class="breadcrumb-item"><a href="#">Home</a></li>
-						<li class="breadcrumb-item active">Praktikum 8</li>
+						<li class="breadcrumb-item active"><?= $judul ?></li>
 					</ol>
 				</div>
 			</div>
@@ -23,7 +23,7 @@
 		<!-- Default box -->
 		<div class="card">
 			<div class="card-header">
-				<h3 class="card-title">How to use</h3>
+				<h3 class="card-title"><?= $judul ?></h3>
 
 				<div class="card-tools">
 					<button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -37,17 +37,35 @@
 			<div class="card-body">
 				<!-- mulai nampilin data dari database -->
 				<div class="col-md-12">
-					<h3></h3>
-					<p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
+					<a href="<?php echo site_url('dosen/create') ?>" class="btn btn-warning mb-3" rel="noopener noreferrer">Create Again</a>
+					<a href="<?php echo site_url('dosen') ?>" class="btn btn-danger mb-3" rel="noopener noreferrer">Back to Home</a>
+					<div class="table-responsive">
+						<table class="table table-striped table-bordered ">
+							<tbody>
+								<tr>
+									<th scope="row">NIDN</th>
+									<td><?= $dsn1->nidn ?></td>
+								</tr>
+								<tr>
+									<th scope="row">Nama</th>
+									<td><?= $dsn1->nama ?></td>
+								</tr>
+								<tr>
+									<th scope="row">Gender</th>
+									<td><?= $dsn1->gender == 'L' ? 'Laki-laki' : 'Perempuan' ?></td>
+								</tr>
+								<tr>
+									<th scope="row">TTL</th>
+									<td><?= $dsn1->tmp_lahir . ', ' . $dsn1->tgl_lahir ?></td>
+								</tr>
+								<tr>
+									<th scope="row">Pendidikan</th>
+									<td><?= $dsn1->pendidikan ?></td>
+								</tr>
+							</tbody>
 
-					<p>If you would like to edit this page you'll find it located at:</p>
-					<code>application/views/welcome_message.php</code>
-
-					<p>The corresponding controller for this page is found at:</p>
-					<code>application/controllers/Welcome.php</code>
-
-					<p>If you are exploring CodeIgniter for the very first time, you should start by reading the <a href="userguide3/">User Guide</a>.</p>
-					<p>Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>
+						</table>
+					</div>
 				</div>
 
 			</div>

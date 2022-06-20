@@ -2,17 +2,23 @@
 
 class Mahasiswa_model extends CI_Model
 {
-	public $id;
-	public $nama;
-	public $nim;
-	public $gender;
-	public $tmp_lahir;
-	public $tgl_lahir;
-	public $ipk;
+	private $table = "mahasiswa";
 
-	public function predikat()
+	public function getAll()
 	{
-		$predikat = ($this->ipk >= 3.75) ? "Cumlaude" : "Baik";
-		return $predikat;
+		$query = $this->db->get($this->table);
+
+		return array(
+			'records' => $query->result(),
+			'count' => count($query->result())
+		);
+	}
+
+	public function findById($id)
+	{
+		$this->db->where("kode", $id);
+		$query = $this->db->get($this->table);
+
+		return $query->row();
 	}
 }
