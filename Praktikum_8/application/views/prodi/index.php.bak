@@ -1,0 +1,29 @@
+<div class="col-md-12">
+	<h3>Daftar Mahasiswa</h3>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>KODE</th>
+				<th>Nama Prodi</th>
+				<th>Ketua Prodi</th>
+			</tr>
+		</thead>
+		<tbody>
+			<?php
+			$nomor = 1;
+			foreach ($list_prodi as $row) {
+			?>
+				<tr>
+					<td><?= $nomor ?></td>
+					<td><?= $row->kode ?></td>
+					<td><?= $row->nama ?></td>
+					<td><?= $row->kaprodi ?></td>
+				</tr>
+			<?php
+				$nomor++;
+			}
+			?>
+		</tbody>
+	</table>
+</div>
