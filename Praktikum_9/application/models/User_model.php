@@ -14,37 +14,9 @@ class User_model extends CI_Model
 		return $query->row();
 	}
 
-	public function getAll()
+	public function register($data)
 	{
-		$query = $this->db->get($this->table);
-
-		return $query->result();
-	}
-
-	public function findById($id)
-	{
-		$this->db->where("nim", $id);
-		$query = $this->db->get($this->table);
-
-		return $query->row();
-	}
-
-	public function save($data)
-	{
-		$sql = "INSERT INTO " . $this->table . " (nim, nama, gender, tmp_lahir, tgl_lahir, ipk, prodi_kode) VALUES (?, ?, ?, ?, ?, ?, ?)";
-
+		$sql = 'INSERT INTO ' . $this->table . "(username, password, email, role, created_at, last_login) VALUES (?, MD5(?), ?, ?, now(), now())";
 		$this->db->query($sql, $data);
-	}
-
-	public function update($data)
-	{
-		$sql = "UPDATE " . $this->table . " SET nim=?, nama=?, gender=?, tmp_lahir=?, tgl_lahir=?, ipk=?, prodi_kode=? WHERE nim=?";
-		$this->db->query($sql, $data);
-	}
-
-	public function delete($id)
-	{
-		$sql = "DELETE FROM " . $this->table . " WHERE nim = ?";
-		$this->db->query($sql, array($id));
 	}
 }
