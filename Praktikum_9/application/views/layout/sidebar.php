@@ -14,7 +14,15 @@
 				<img src="<?php echo base_url('dist/img/user2-160x160.jpg') ?>" class="img-circle elevation-2" alt="User Image">
 			</div>
 			<div class="info">
-				<a href="#" class="d-block">Alexander Pierce</a>
+				<a href="#" class="d-block">
+					<?php
+					if ($this->session->has_userdata('USERNAME')) {
+						echo $this->session->userdata('USERNAME') . ' - ' . $this->session->userdata('ROLE');
+					} else {
+						echo 'Guest';
+					}
+					?>
+				</a>
 			</div>
 		</div>
 
@@ -32,39 +40,43 @@
 
 		<!-- Sidebar Menu -->
 		<nav class="mt-2">
-			<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-				<!-- Add icons to the links using the .nav-icon class
+			<?php
+			if ($this->session->userdata('ROLE') == 'ADMIN') {
+			?>
+				<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+					<!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-				<li class="nav-item">
-					<a href="#" class="nav-link">
-						<i class="nav-icon fas fa-tachometer-alt"></i>
-						<p>
-							Menu
-							<i class="right fas fa-angle-left"></i>
-						</p>
-					</a>
-					<ul class="nav nav-treeview">
-						<li class="nav-item">
-							<a href="<?php echo site_url('dosen') ?>" class="nav-link">
-								<i class="far fa-circle nav-icon"></i>
-								<p>Dosen</p>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="<?php echo site_url('mahasiswa') ?>" class="nav-link">
-								<i class="far fa-circle nav-icon"></i>
-								<p>Mahasiswa</p>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="<?php echo site_url('prodi') ?>" class="nav-link">
-								<i class="far fa-circle nav-icon"></i>
-								<p>Prodi</p>
-							</a>
-						</li>
-					</ul>
-				</li>
-			</ul>
+					<li class="nav-item">
+						<a href="#" class="nav-link">
+							<i class="nav-icon fas fa-tachometer-alt"></i>
+							<p>
+								Menu
+								<i class="right fas fa-angle-left"></i>
+							</p>
+						</a>
+						<ul class="nav nav-treeview">
+							<li class="nav-item">
+								<a href="<?php echo site_url('dosen') ?>" class="nav-link">
+									<i class="far fa-circle nav-icon"></i>
+									<p>Dosen</p>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a href="<?php echo site_url('mahasiswa') ?>" class="nav-link">
+									<i class="far fa-circle nav-icon"></i>
+									<p>Mahasiswa</p>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a href="<?php echo site_url('prodi') ?>" class="nav-link">
+									<i class="far fa-circle nav-icon"></i>
+									<p>Prodi</p>
+								</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			<?php } ?>
 		</nav>
 		<!-- /.sidebar-menu -->
 	</div>

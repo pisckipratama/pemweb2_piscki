@@ -22,9 +22,19 @@ class Login extends CI_Controller
 		$row = $this->user->login($username, $password);
 
 		if (isset($row)) {
-			redirect(base_url() . 'index.php/mahasiswa/');
+			$this->session->set_userdata('USERNAME', $row->username);
+			$this->session->set_userdata('ROLE', $row->role);
+			redirect(base_url() . 'index.php/');
 		} else {
 			redirect(base_url() . 'index.php/login?status=f');
 		}
+	}
+
+	public function destroy()
+	{
+		$this->session->unset_userdata('USERNAME');
+		$this->session->unset_userdata('ROLE');
+
+		redirect(base_url() . 'index.php/login');
 	}
 }
